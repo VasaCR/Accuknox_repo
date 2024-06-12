@@ -1,0 +1,19 @@
+COMPILING THE PROGRAMMES;
+
+compiling the ebpf programme:
+  clang -O2 -target bpf -c drop_port.c -o drop_port_kern.o
+
+compiling update port programme:
+  clang -O2 -target bpf -c drop_port.c -o drop_port_kern.o
+
+RUNNING THE PROGRAMS;
+
+After loading the ebpf programme:
+ip link set dev <interface> xdp obj drop_port_kern.o 
+/*what ever the interface we want the ebpf programme will be attached.
+  for example we can replace the interface with "eth0" or "wlan0" in the above command*/
+
+update port number from userspace:
+./update_port 4040
+
+
