@@ -1,19 +1,20 @@
-COMPILING THE PROGRAMMES;
+You need to compile the eBPF program and the userspace program. Install clang, llvm, libbpf, and necessary dependencies for eBPF development.
+COMPILE THE PROGRAMMES:
 
-compiling the ebpf programme:
-  clang -O2 -target bpf -c drop_port.c -o drop_port_kern.o
+compiling the ebpf programmes:
+ clang -O2 -target bpf -c filter_process_port.c -o filter_process_port_kern.o
 
-compiling update port programme:
-  clang -O2 -target bpf -c drop_port.c -o drop_port_kern.o
+compiling the userspace programme:
+ gcc -o load_and_update load_and_update.c -lbpf
 
-RUNNING THE PROGRAMS;
+RUN THE PROGRAMMES:
 
-After loading the ebpf programme:
-ip link set dev <interface> xdp obj drop_port_kern.o 
-/*what ever the interface we want the ebpf programme will be attached.
-  for example we can replace the interface with "eth0" or "wlan0" in the above command*/
+First, create a cgroup and attach the process to it:
+mkdir /sys/fs/cgroup/unified/mycgroup
+echo $$ > /sys/fs/cgroup/unified/mycgroup/cgroup.procs
 
-update port number from userspace:
-./update_port 4040
+Load the eBPF program and update the port:
+./load_and_update 4040
+
 
 
