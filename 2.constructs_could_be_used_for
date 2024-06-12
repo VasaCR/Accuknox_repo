@@ -1,0 +1,13 @@
+Map Definition:
+  Use-Case: Storing Configuration Data
+Cgroup Socket Program:
+  Use-Case: Network Traffic Control at Process Level
+Getting Process ID and Name:
+  Use-Case: Process-Specific Monitoring and Filtering
+Comparing Process Name:
+  Use-Case: Selective Filtering
+Fetching Allowed Port:
+  Use-Case: Dynamic Configuration
+Packet Inspection and Filtering:
+  Use-Case: Fine-Grained Network Security
+

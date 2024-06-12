@@ -1,0 +1,10 @@
+By using the different attributtes,functions,maps and structs like,,
+
+SEC("cgroup_skb/egress"):Section attribute indicating this is a cgroup socket egress program.
+struct __sk_buff *skb:Represents the network packet buffer. This structure contains metadata and pointers to the packet data.
+bpf_get_current_pid_tgid(): Retrieves the current PID and TGID (thread group ID).
+pid = id >> 32: Extracts the PID from the 64-bit value.
+bpf_get_current_task(): Retrieves a pointer to the current task_struct.
+bpf_probe_read_kernel_str(&comm, sizeof(comm), task->comm): Reads the task's name (command) into the comm buffer.
+__builtin_memcmp: Compares the memory regions. If the process name does not match, the program allows the packet to pass.
+bpf_map_lookup_elem(&allowed_port_map, &key): Retrieves the port number from the map. If it fails, the program allows the packet.etc.....

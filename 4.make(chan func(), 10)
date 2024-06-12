@@ -1,0 +1,3 @@
+it is  the channel which holds up to 10 functions.
+these are used for concurrency control.
+concurrency is used in golang also is very useful and the channels,goroutines is used for the concurrency.

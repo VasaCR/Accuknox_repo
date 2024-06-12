@@ -1,0 +1,2 @@
+the problem is the code exits before "HERE1" is getting printed..
+we csn print HERE1 by usin WAITGROUP that task is to be done..

@@ -1,0 +1,2 @@
+The for loop with 4 iterations in the provided eBPF code is crucial for ensuring that the packet headers are properly parsed without accessing invalid memory, which could lead to errors or potential security issues
+By performing these checks, the eBPF program ensures that it safely and correctly processes only the relevant packets, thereby maintaining stability and security in the system.
